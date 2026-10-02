@@ -121,6 +121,23 @@ generar los resultados principales.
 
 <!-- TODO (Ejercicio 1.5) -->
 
+El proyecto cuenta con una imagen que permite construir el ambiente mediante Docker Compose.
+
+Desde la raíz del repositorio se debe ejecutar:
+
+```bash
+docker compose up -d
+```
+
+Este comando construye las imágenes y levanta los servicios que están definidos en el archivo docker-compose.yml.
+Una vez iniciado el ambiente, JupyterLab estará disponible en el puerto 8888 y Metabase en el puerto 3000
+
+Para dar de baja los servicios, se debe ejecutar:
+
+```bash
+docker compose down
+```
+
 ## Como descargar los datos
 
 <!-- TODO (Ejercicios 2.6, 5.1 y 8.1) -->
