@@ -140,11 +140,38 @@ docker compose down
 
 ## Como descargar los datos
 
-<!-- TODO (Ejercicios 2.6, 5.1 y 8.1) -->
+Desde la raiz del repositorio, descargue primero los datos disponibles de 2026:
+
+```bash
+python scripts/download_data.py
+```
+
+Para incorporar los doce meses de 2024 sin modificar ni reemplazar los datos de
+2026, ejecute el descargador del Ejercicio 5:
+
+```bash
+python scripts/download_data_ejercicio_5.py
+```
+
+Ambos scripts descargan Yellow y Green Taxi, guardan los archivos en
+`data/raw/<tipo>/<anio>/` y omiten cualquier archivo local no vacio. Se puede
+usar `--taxi yellow` o `--taxi green` para descargar solo un tipo. Los datos
+quedan excluidos de Git mediante `.gitignore`.
+
+<!-- TODO: agregar aqui el descargador de 2025 en el Ejercicio 8. -->
 
 ## Como ejecutar el analisis
 
-<!-- TODO -->
+Con el ambiente levantado, abra JupyterLab en <http://127.0.0.1:8888> y ejecute
+los cuadernos en este orden:
+
+1. `notebooks/ejercicio_3.ipynb`: explora y genera los Parquet procesados de 2026.
+2. `notebooks/ejercicio_4.ipynb`: realiza el analisis exploratorio de 2026.
+3. `notebooks/ejercicio_5.ipynb`: genera los procesados de 2024 y valida la
+   consulta conjunta de 2024 y 2026.
+
+Las consultas ejecutadas por los cuadernos estan versionadas en `sql/`. Los
+Parquet derivados se escriben en `data/processed/` y no se incluyen en Git.
 
 ## Como reproducir los benchmarks
 
