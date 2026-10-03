@@ -169,13 +169,27 @@ los cuadernos en este orden:
 2. `notebooks/ejercicio_4.ipynb`: realiza el analisis exploratorio de 2026.
 3. `notebooks/ejercicio_5.ipynb`: genera los procesados de 2024 y valida la
    consulta conjunta de 2024 y 2026.
+4. `notebooks/ejercicio_6.ipynb`: presenta y analiza el benchmark entre Parquet
+   y una tabla materializada en DuckDB.
 
 Las consultas ejecutadas por los cuadernos estan versionadas en `sql/`. Los
 Parquet derivados se escriben en `data/processed/` y no se incluyen en Git.
 
 ## Como reproducir los benchmarks
 
-<!-- TODO (Ejercicio 6) -->
+Despues de ejecutar los cuadernos 3 y 5, ejecute desde la raiz:
+
+```bash
+python scripts/benchmark_ejercicio_6.py --repetitions 3
+```
+
+El script crea `data/processed/ejercicio_6.duckdb`, verifica que cada consulta
+produzca el mismo resultado sobre Parquet y sobre la tabla `trips`, y evalua
+tres cantidades de datos: 2026 parcial, 2024 completo y ambos años. Los tiempos
+crudos se guardan en `docs/benchmark_ejercicio_6.csv`; el cuaderno
+`notebooks/ejercicio_6.ipynb` genera la tabla resumen, visualizaciones y
+discusion. La base materializada es un artefacto regenerable y no se incluye en
+Git.
 
 ## Como generar los resultados principales
 
