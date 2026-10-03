@@ -1,0 +1,23 @@
+SELECT
+COUNT(*) FILTER (WHERE VendorID IS NULL) AS VendorID_nulls,
+COUNT(*) FILTER (WHERE lpep_pickup_datetime IS NULL) AS lpep_pickup_datetime_nulls,
+COUNT(*) FILTER (WHERE lpep_dropoff_datetime IS NULL) AS lpep_dropoff_datetime_nulls,
+COUNT(*) FILTER (WHERE store_and_fwd_flag IS NULL) AS store_and_fwd_flag_nulls,
+COUNT(*) FILTER (WHERE RatecodeID IS NULL) AS RatecodeID_nulls,
+COUNT(*) FILTER (WHERE PULocationID IS NULL) AS PULocationID_nulls,
+COUNT(*) FILTER (WHERE DOLocationID IS NULL) AS DOLocationID_nulls,
+COUNT(*) FILTER (WHERE passenger_count IS NULL) AS passenger_count_nulls,
+COUNT(*) FILTER (WHERE trip_distance IS NULL) AS trip_distance_nulls,
+COUNT(*) FILTER (WHERE fare_amount IS NULL) AS fare_amount_nulls,
+COUNT(*) FILTER (WHERE extra IS NULL) AS extra_nulls,
+COUNT(*) FILTER (WHERE mta_tax IS NULL) AS mta_tax_nulls,
+COUNT(*) FILTER (WHERE tip_amount IS NULL) AS tip_amount_nulls,
+COUNT(*) FILTER (WHERE tolls_amount IS NULL) AS tolls_amount_nulls,
+COUNT(*) FILTER (WHERE ehail_fee IS NULL) AS ehail_fee_nulls,
+COUNT(*) FILTER (WHERE improvement_surcharge IS NULL) AS improvement_surcharge_nulls,
+COUNT(*) FILTER (WHERE total_amount IS NULL) AS total_amount_nulls,
+COUNT(*) FILTER (WHERE payment_type IS NULL) AS payment_type_nulls,
+COUNT(*) FILTER (WHERE trip_type IS NULL) AS trip_type_nulls,
+COUNT(*) FILTER (WHERE congestion_surcharge IS NULL) AS congestion_surcharge_nulls,
+COUNT(*) FILTER (WHERE cbd_congestion_fee IS NULL) AS cbd_congestion_fee_nulls
+FROM read_parquet('../data/raw/green/2026/*.parquet')
